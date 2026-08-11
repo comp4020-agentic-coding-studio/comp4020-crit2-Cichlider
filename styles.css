@@ -79,6 +79,99 @@ dl dd {
   color: #333;
 }
 
+.clash-banner {
+  background: #fdecea;
+  border: 1px solid #d93025;
+  color: #a11a10;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.timetable {
+  display: grid;
+  grid-template-columns: 4.5rem repeat(5, 1fr);
+  grid-auto-rows: 1.6rem;
+  border: 1px solid #d7deea;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  background: #fff;
+  font-size: 0.85rem;
+}
+
+.day-head {
+  background: #eef3fc;
+  font-weight: 600;
+  padding: 0.4rem 0.3rem;
+  text-align: center;
+  border-bottom: 1px solid #d7deea;
+}
+
+.time-label {
+  color: #667;
+  padding: 0.2rem 0.4rem;
+  border-top: 1px solid #eef1f7;
+  font-size: 0.8rem;
+}
+
+.activity {
+  margin: 1px;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.activity.lecture {
+  background: #5b6b82;
+}
+
+.activity.tutorial {
+  background: #1f6feb;
+}
+
+.activity.lab {
+  background: #0f9d58;
+}
+
+.activity.clash {
+  background: #d93025;
+  outline: 2px solid #7a0000;
+}
+
+.choice-group {
+  margin-bottom: 1.2rem;
+}
+
+.choice-group h3 {
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+}
+
+.choice-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.choice-buttons button {
+  border: 1px solid #b9c6de;
+  background: #fff;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.choice-buttons button.selected {
+  background: #0b1f3a;
+  color: #fff;
+  border-color: #0b1f3a;
+}
+
 footer {
   max-width: 44rem;
   margin: 0 auto;

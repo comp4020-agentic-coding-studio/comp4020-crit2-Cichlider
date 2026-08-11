@@ -3,122 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyTimetable, actually explained</title>
+    <title>MyTimetable, redesigned</title>
     <meta
       name="description"
-      content="An unofficial, static front door to ANU MyTimetable: what it does, where it lets students down, and where to actually go."
+      content="A static concept mockup: swap your tutorial or lab from inside the calendar view, with clashes shown inline, instead of a separate allocation screen."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header>
       <nav aria-label="Primary">
-        <a href="#what-it-is">What it is</a>
-        <a href="#where-it-struggles">Where it struggles</a>
-        <a href="#getting-in">Getting in</a>
+        <a href="#timetable">Timetable</a>
+        <a href="#why">Why this is different</a>
         <a
-          href="https://www.anu.edu.au/students/program-administration/timetabling"
+          href="https://www.anu.edu.au/students/program-administration/timetabling/01-access-and-support-for-mytimetable"
           class="cta"
         >
-          Open real MyTimetable info →
+          Open real MyTimetable →
         </a>
       </nav>
     </header>
 
     <main>
       <section class="hero">
-        <h1>MyTimetable, actually explained</h1>
+        <h1>MyTimetable, redesigned</h1>
         <p class="lede">
-          ANU's own <a
-            href="https://www.anu.edu.au/students/program-administration/timetabling"
-          >timetabling pages</a> are correct and thorough — they're also spread
-          across a Getting Started guide, a Student User Guide PDF, an FAQ, and
-          a separate "Timetable Viewer" that isn't the same tool. This page is
-          an unofficial redesign: everything you need to get oriented, on one
-          screen, before you go do the actual allocating on the real site.
+          This is a static concept mockup for COMP4020 — sample courses, fake
+          students, no login and no real enrolment behind it. It's not
+          connected to
+          <a href="https://www.anu.edu.au/students/program-administration/timetabling">
+            ANU's real MyTimetable
+          </a>, and it doesn't allocate anyone into anything. What it shows is
+          one specific idea: <strong>choosing between your allocation options
+          without leaving the calendar</strong>, with a clash flagged the
+          moment it happens.
         </p>
       </section>
 
-      <section id="what-it-is">
-        <h2>What MyTimetable actually is</h2>
-        <p>
-          MyTimetable is ANU's self-allocation system: once your enrolment is
-          in, it shows every teaching activity — lecture, tutorial, lab,
-          seminar — attached to your enrolled courses, and lets you pick which
-          tutorial or lab stream you attend where a course offers more than
-          one. It runs clash detection while you choose, and it's separate
-          from the read-only <em>Class Timetable Web View</em>, which shows the
-          published grid but can't allocate you into anything.
+      <section id="timetable">
+        <h2>Your week (sample data)</h2>
+        <p id="clash-banner" class="clash-banner" hidden>
+          ⚠ Clash: two of your selected activities overlap on the grid below.
         </p>
-        <ul>
-          <li>Accessed via ANU single sign-on — no separate account to create.</li>
-          <li>Only shows activities for courses you're already enrolled in.</li>
-          <li>Lets you build a plan, swap allocations, and join a waitlist.</li>
-        </ul>
+        <div class="timetable" id="timetable-grid" aria-label="Sample weekly timetable">
+          <div class="corner" style="grid-row: 1; grid-column: 1"></div>
+          <div class="day-head" style="grid-row: 1; grid-column: 2">Mon</div>
+          <div class="day-head" style="grid-row: 1; grid-column: 3">Tue</div>
+          <div class="day-head" style="grid-row: 1; grid-column: 4">Wed</div>
+          <div class="day-head" style="grid-row: 1; grid-column: 5">Thu</div>
+          <div class="day-head" style="grid-row: 1; grid-column: 6">Fri</div>
+
+          <div class="time-label" style="grid-row: 2 / 4; grid-column: 1">9:00</div>
+          <div class="time-label" style="grid-row: 4 / 6; grid-column: 1">10:00</div>
+          <div class="time-label" style="grid-row: 6 / 8; grid-column: 1">11:00</div>
+          <div class="time-label" style="grid-row: 8 / 10; grid-column: 1">12:00</div>
+          <div class="time-label" style="grid-row: 10 / 12; grid-column: 1">13:00</div>
+          <div class="time-label" style="grid-row: 12 / 14; grid-column: 1">14:00</div>
+          <div class="time-label" style="grid-row: 14 / 16; grid-column: 1">15:00</div>
+          <div class="time-label" style="grid-row: 16 / 18; grid-column: 1">16:00</div>
+          <!-- Activity blocks are rendered here by main.ts, as siblings in this
+               same grid, so their inline grid-row/grid-column line up with the
+               labels above. -->
+        </div>
       </section>
 
-      <section id="where-it-struggles">
-        <h2>Where the real site struggles</h2>
-        <p>
-          None of this is a knock on the timetabling team — the system does a
-          genuinely hard scheduling job. It's the <em>orientation</em> that's
-          rough for a first-time user:
-        </p>
+      <section id="choices">
+        <h2>Your allocations</h2>
+        <div class="choice-group" data-group="comp4020-tut">
+          <h3>COMP4020 — Tutorial</h3>
+          <div class="choice-buttons" data-buttons-for="comp4020-tut"></div>
+        </div>
+        <div class="choice-group" data-group="comp3120-lab">
+          <h3>COMP3120 — Lab</h3>
+          <div class="choice-buttons" data-buttons-for="comp3120-lab"></div>
+        </div>
+      </section>
+
+      <section id="why">
+        <h2>Why this is different from the real MyTimetable</h2>
         <dl>
-          <dt>Two systems, one name</dt>
+          <dt>Swapping happens on the grid, not on a separate screen</dt>
           <dd>
-            "Timetable" refers to both the read-only Web View and the
-            allocation tool, and the official pages don't say which one you
-            want until several paragraphs in.
+            The real MyTimetable's swap flow takes you off the calendar into a
+            list of activity codes and times you have to mentally re-plot.
+            Here, clicking an option moves the block on the grid you're already
+            looking at.
           </dd>
-          <dt>The guide is a PDF</dt>
+          <dt>A clash is a banner, not a support ticket</dt>
           <dd>
-            The clearest walkthrough of clash management, swaps, and waitlists
-            lives in a downloadable Student User Guide — not searchable from
-            the page you land on first.
-          </dd>
-          <dt>No answer to "why can't I allocate yet"</dt>
-          <dd>
-            A course appearing in the Web View but not open for allocation in
-            MyTimetable is a common, confusing state that the front page
-            doesn't warn you about before you go looking for it.
+            Try picking the COMP4020 Wednesday tutorial and the COMP3120
+            Wednesday lab together — both sit at 14:00, and the grid flags it
+            immediately instead of leaving you to notice the overlap yourself.
           </dd>
         </dl>
-      </section>
-
-      <section id="getting-in">
-        <h2>Where to actually go</h2>
-        <p>
-          This page doesn't allocate you into anything — that has to happen on
-          ANU's own single-sign-on-protected site, and it should. Once you
-          know what you're looking for:
-        </p>
-        <ul>
-          <li>
-            <a href="https://www.anu.edu.au/students/program-administration/timetabling">
-              Timetabling overview
-            </a> — start here for the Web View, room availability, and FAQs.
-          </li>
-          <li>
-            <a
-              href="https://www.anu.edu.au/students/program-administration/timetabling/01-access-and-support-for-mytimetable"
-            >
-              Access and support for MyTimetable
-            </a> — the actual login path, plus the video walkthroughs.
-          </li>
-        </ul>
       </section>
     </main>
 
     <footer>
       <p>
-        Unofficial student redesign for COMP4020 — not affiliated with ANU
-        Student Administration and Academic Services. Real timetable data
-        lives at
+        Unofficial concept mockup for COMP4020 — sample data only, not
+        affiliated with ANU Student Administration and Academic Services. Your
+        real timetable lives at
         <a href="https://www.anu.edu.au/students/program-administration/timetabling">
           anu.edu.au/students/program-administration/timetabling
         </a>.
       </p>
     </footer>
+    <script type="module" src="./main.ts"></script>
   </body>
 </html>
