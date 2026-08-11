@@ -22,7 +22,17 @@ demo of one specific interaction idea, not a rebuild of the real tool.
 
 ## The moments that mattered
 
-1. **Scoping "redesign MyTimetable" against this week's static-only
+1. **From a single grid to a real information architecture.** The interaction
+   demo (one grid, one clash) proved the constraint could hold, but it wasn't
+   yet an actual redesign of MyTimetable's IA — no course list, no allocation
+   status by activity, no separation between looking at the week and changing
+   an allocation. The rebuild added a sidebar (student summary, status chips,
+   per-course activity list), an "up next" banner so today's classes don't
+   require reading the whole grid, a decluttered toolbar, and a drawer that's
+   the only place a change actually happens — closing the gap between "a
+   working demo" and "a redesign that answers the brief's five goals"
+   ([`270f93a`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-Cichlider/commit/270f93a)).
+2. **Scoping "redesign MyTimetable" against this week's static-only
    constraint.** The organisation I wanted was real and login-gated; the
    brief rules out logins and backend logic. First pass landed on an
    informational front-door page as the compromise. That wasn't actually
@@ -33,13 +43,13 @@ demo of one specific interaction idea, not a rebuild of the real tool.
    ([`512b2a4`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-Cichlider/commit/512b2a4)).
    Getting the scope right took two attempts, not one — the first shape was a
    reasonable read of the constraint, but not the actual brief.
-2. **Turning "no backend" into a test, not just a rule.** A spec test asserts
+3. **Turning "no backend" into a test, not just a rule.** A spec test asserts
    the built page ships zero `<form>` elements and a real link to ANU's
    timetabling page
    ([`2029da5`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-Cichlider/commit/2029da5)),
    so a later, well-meaning attempt to wire the mockup up to something
    real can't silently reintroduce backend-shaped scope.
-3. **Checking the build before checking it in.** The first pass of
+4. **Checking the build before checking it in.** The first pass of
    `styles.css` failed `stylelint`'s `no-descending-specificity` rule. I had
    it re-ordered rather than silencing the rule, so `pnpm check` went red →
    green
