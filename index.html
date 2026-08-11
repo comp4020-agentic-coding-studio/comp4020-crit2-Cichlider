@@ -6,102 +6,103 @@
     <title>MyTimetable, redesigned</title>
     <meta
       name="description"
-      content="A static concept mockup: swap your tutorial or lab from inside the calendar view, with clashes shown inline, instead of a separate allocation screen."
+      content="A static concept redesign of ANU MyTimetable's scheduling workspace: today-first, view/edit separated, clashes surfaced inline. Sample data only."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header>
+      <div class="brand">
+        <button type="button" id="sidebar-toggle" class="icon-button" aria-expanded="true" aria-controls="sidebar">
+          ☰<span class="sr-only">Toggle course panel</span>
+        </button>
+        <span class="brand-mark">ANU</span>
+        <span class="brand-name">MyTimetable</span>
+      </div>
       <nav aria-label="Primary">
+        <a href="#today" aria-current="page">Home</a>
         <a href="#timetable">Timetable</a>
-        <a href="#why">Why this is different</a>
+        <a href="#courses">Planner</a>
         <a
           href="https://www.anu.edu.au/students/program-administration/timetabling/01-access-and-support-for-mytimetable"
-          class="cta"
-        >
-          Open real MyTimetable →
-        </a>
+        >LiveCal</a>
       </nav>
+      <div class="account">
+        <button type="button" class="icon-button" title="Notifications (sample — none in this mockup)">
+          🔔<span class="sr-only">Notifications</span>
+        </button>
+        <span class="account-name">J. Alex</span>
+        <a
+          class="cta"
+          href="https://www.anu.edu.au/students/program-administration/timetabling"
+        >Real MyTimetable ↗</a>
+      </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <h1>MyTimetable, redesigned</h1>
-        <p class="lede">
-          This is a static concept mockup for COMP4020 — sample courses, fake
-          students, no login and no real enrolment behind it. It's not
-          connected to
-          <a href="https://www.anu.edu.au/students/program-administration/timetabling">
-            ANU's real MyTimetable
-          </a>, and it doesn't allocate anyone into anything. What it shows is
-          one specific idea: <strong>choosing between your allocation options
-          without leaving the calendar</strong>, with a clash flagged the
-          moment it happens.
-        </p>
-      </section>
+    <div class="layout">
+      <aside id="sidebar" aria-label="My courses and allocations">
+        <section class="who">
+          <p class="who-name">Jordan Alex</p>
+          <p class="who-meta">u1234567 · u1234567@anu.edu.au</p>
+          <p class="who-meta sample-tag">Sample student — not a real account</p>
+        </section>
 
-      <section id="timetable">
-        <h2>Your week (sample data)</h2>
-        <p id="clash-banner" class="clash-banner" hidden>
-          ⚠ Clash: two of your selected activities overlap on the grid below.
-        </p>
-        <div class="timetable" id="timetable-grid" aria-label="Sample weekly timetable">
-          <div class="corner" style="grid-row: 1; grid-column: 1"></div>
-          <div class="day-head" style="grid-row: 1; grid-column: 2">Mon</div>
-          <div class="day-head" style="grid-row: 1; grid-column: 3">Tue</div>
-          <div class="day-head" style="grid-row: 1; grid-column: 4">Wed</div>
-          <div class="day-head" style="grid-row: 1; grid-column: 5">Thu</div>
-          <div class="day-head" style="grid-row: 1; grid-column: 6">Fri</div>
+        <section class="summary" aria-label="Allocation summary" id="summary-chips"></section>
 
-          <div class="time-label" style="grid-row: 2 / 4; grid-column: 1">9:00</div>
-          <div class="time-label" style="grid-row: 4 / 6; grid-column: 1">10:00</div>
-          <div class="time-label" style="grid-row: 6 / 8; grid-column: 1">11:00</div>
-          <div class="time-label" style="grid-row: 8 / 10; grid-column: 1">12:00</div>
-          <div class="time-label" style="grid-row: 10 / 12; grid-column: 1">13:00</div>
-          <div class="time-label" style="grid-row: 12 / 14; grid-column: 1">14:00</div>
-          <div class="time-label" style="grid-row: 14 / 16; grid-column: 1">15:00</div>
-          <div class="time-label" style="grid-row: 16 / 18; grid-column: 1">16:00</div>
-          <!-- Activity blocks are rendered here by main.ts, as siblings in this
-               same grid, so their inline grid-row/grid-column line up with the
-               labels above. -->
-        </div>
-      </section>
+        <section class="courses" aria-label="Courses this semester">
+          <h2 class="section-label">Semester 2, 2026</h2>
+          <div id="course-list"></div>
+        </section>
+      </aside>
 
-      <section id="choices">
-        <h2>Your allocations</h2>
-        <div class="choice-group" data-group="comp4020-tut">
-          <h3>COMP4020 — Tutorial</h3>
-          <div class="choice-buttons" data-buttons-for="comp4020-tut"></div>
-        </div>
-        <div class="choice-group" data-group="comp3120-lab">
-          <h3>COMP3120 — Lab</h3>
-          <div class="choice-buttons" data-buttons-for="comp3120-lab"></div>
-        </div>
-      </section>
+      <main>
+        <h1 class="sr-only">Your MyTimetable — sample redesign</h1>
+        <section id="today" class="up-next" aria-label="Next class">
+          <div id="up-next-content"></div>
+        </section>
 
-      <section id="why">
-        <h2>Why this is different from the real MyTimetable</h2>
-        <dl>
-          <dt>Swapping happens on the grid, not on a separate screen</dt>
-          <dd>
-            The real MyTimetable's swap flow takes you off the calendar into a
-            list of activity codes and times you have to mentally re-plot.
-            Here, clicking an option moves the block on the grid you're already
-            looking at.
-          </dd>
-          <dt>A clash is a banner, not a support ticket</dt>
-          <dd>
-            Try picking the COMP4020 Wednesday tutorial and the COMP3120
-            Wednesday lab together — both sit at 14:00, and the grid flags it
-            immediately instead of leaving you to notice the overlap yourself.
-          </dd>
-        </dl>
-      </section>
-    </main>
+        <section id="timetable" aria-label="Weekly timetable">
+          <div class="toolbar">
+            <div class="toolbar-group">
+              <span class="toolbar-label">Show:</span>
+              <label><input type="checkbox" data-filter="COMP4020" checked /> COMP4020</label>
+              <label><input type="checkbox" data-filter="COMP3120" checked /> COMP3120</label>
+            </div>
+            <div class="toolbar-group">
+              <div class="view-toggle" role="group" aria-label="View">
+                <button type="button" data-view="grid" class="selected">Grid</button>
+                <button type="button" data-view="list">List</button>
+              </div>
+            </div>
+            <div class="toolbar-group toolbar-week">
+              <button type="button" disabled title="Sample data covers one week only">‹</button>
+              <span>Week 3 · 10–16 Aug 2026 (sample)</span>
+              <button type="button" disabled title="Sample data covers one week only">›</button>
+              <div class="overflow-menu">
+                <button type="button" id="print-button" title="Print this view">Print</button>
+                <button type="button" disabled title="Not wired up in this mockup">Export</button>
+              </div>
+            </div>
+          </div>
+
+          <p id="clash-banner" class="clash-banner" role="alert" hidden></p>
+
+          <div id="grid-view">
+            <div class="timetable" id="timetable-grid" aria-label="Sample weekly timetable, Monday to Sunday"></div>
+          </div>
+          <div id="list-view" hidden></div>
+        </section>
+      </main>
+
+      <div id="drawer-backdrop" hidden></div>
+      <aside id="drawer" aria-label="Allocation detail" aria-hidden="true" hidden>
+        <div id="drawer-content"></div>
+      </aside>
+    </div>
 
     <footer>
       <p>
-        Unofficial concept mockup for COMP4020 — sample data only, not
+        Unofficial concept redesign for COMP4020 — sample data only, not
         affiliated with ANU Student Administration and Academic Services. Your
         real timetable lives at
         <a href="https://www.anu.edu.au/students/program-administration/timetabling">
