@@ -50,7 +50,10 @@
         <section class="summary" aria-label="Allocation summary" id="summary-chips"></section>
 
         <section class="courses" aria-label="Courses this semester">
-          <h2 class="section-label">Semester 2, 2026</h2>
+          <div class="courses-header">
+            <h2 class="section-label">Semester 2, 2026</h2>
+            <button type="button" id="manage-toggle" class="manage-toggle" aria-pressed="false">Manage classes</button>
+          </div>
           <div id="course-list"></div>
         </section>
       </aside>
@@ -85,6 +88,7 @@
             </div>
           </div>
 
+          <div id="change-bar" class="change-bar" role="status" aria-live="polite" hidden></div>
           <p id="clash-banner" class="clash-banner" role="alert" hidden></p>
 
           <div id="grid-view">
@@ -93,11 +97,6 @@
           <div id="list-view" hidden></div>
         </section>
       </main>
-
-      <div id="drawer-backdrop" hidden></div>
-      <aside id="drawer" aria-label="Allocation detail" aria-hidden="true" hidden>
-        <div id="drawer-content"></div>
-      </aside>
     </div>
 
     <footer>
