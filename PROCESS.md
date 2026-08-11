@@ -55,6 +55,20 @@ demo of one specific interaction idea, not a rebuild of the real tool.
    green
    ([`edf855f`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-Cichlider/commit/edf855f))
    for the real reason.
+5. **A redesign is a second draft, not the first one.** The full-workspace
+   pass ([`270f93a`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-Cichlider/commit/270f93a))
+   had the right IA but the wrong interaction habits: a drawer for changing
+   a class, colour doing double duty for both course and activity kind, an
+   "Up next" card competing with a pill list underneath it. A second,
+   task-oriented pass replaced the drawer with alternatives previewed
+   in-place on the real grid, split viewing a course from editing its
+   allocation behind an explicit "Manage classes" toggle, and gave every
+   course exactly one colour everywhere it appears
+   ([`03ae4aa`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit2-Cichlider/commit/03ae4aa)).
+   The tests can't see interaction quality, so I verified the change flow by
+   hand against real headless Chrome — `spec/invariants.test.ts` builds its
+   JSDOM without `runScripts`, which can't execute the page's module script
+   at all, so a green spec suite here would not have meant a working page.
 
 ## Before you ship
 
