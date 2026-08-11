@@ -1,18 +1,23 @@
 # Crit 2 reflection — Unsolicited redesign
 
-**The breakthrough that moved the work forward:** picking MyTimetable and then
-almost immediately hitting the week's real constraint — a redesign has to stay
-static, no login, no backend, and MyTimetable's actual function is none of
-those things. The breakthrough wasn't abandoning the idea, it was re-scoping
-it: redesign the *front door* — the page that orients you before you go do the
-real login-gated allocating — rather than the tool itself. That reframing is
-what let a genuinely-opinionated pick survive the week's scope instead of
-forcing a different, safer organisation.
+**The breakthrough that moved the work forward:** the first shape I landed on
+— a static informational page *about* MyTimetable — technically satisfied the
+"stay static, no login" constraint, but it wasn't actually a redesign of the
+thing I set out to redesign. The breakthrough was realising the constraint and
+the brief weren't the same thing: the fix wasn't to abandon a login-gated
+organisation, it was to mock up the *interface itself* — the timetable grid,
+the swap interaction, the clash — with fake data standing in for a real
+backend. That's a different kind of static site than the starter's invariants
+assume, and getting there took a real do-over, not a tweak.
 
-**What this changed about the developer I want to be:** _[TODO — this one's
-yours. A genuine placeholder from the session: the moment worth reflecting on
-is that the scope conflict got caught and negotiated_ before _any code was
-written, rather than discovered late by a failing check. Is that the habit
-you want — naming the constraint out loud before building against it — or did
-something else about this week land harder for you? Replace this paragraph
-with your own answer; 150–300 words, per spec/README.md.]_
+**What this changed about the developer I want to be:** this crit confirmed
+that I care about UI more than I initially gave it credit for during planning.
+The easy version of this week's brief was a page of prose about an
+organisation; what actually held my attention was the interaction detail —
+whether clicking a tutorial option feels like it *moves* something on the grid
+you're already looking at, whether a clash reads as urgent without being
+alarming, whether the grid math (half-hour rows, column-per-day) lines up
+pixel-for-pixel so nothing looks almost-aligned. I kept pulling on those
+details past the point they were strictly required by the spec, which told me
+something: I want to be the kind of developer who treats the interface itself
+as the thing worth getting right, not just a wrapper around correct behaviour.
