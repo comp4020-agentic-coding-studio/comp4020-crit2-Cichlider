@@ -1,16 +1,88 @@
 body {
   margin: 0;
-  padding: 2rem;
   font-family: system-ui, sans-serif;
   line-height: 1.6;
   color: #1a1a1a;
-}
-
-main {
-  max-width: 40rem;
-  margin: 0 auto;
+  background: #fafafa;
 }
 
 a {
   color: #0b5fff;
+}
+
+header {
+  background: #0b1f3a;
+  padding: 1rem 1.5rem;
+}
+
+header nav {
+  max-width: 44rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+header nav a {
+  color: #cfe0ff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+header nav a.cta {
+  margin-left: auto;
+  color: #0b1f3a;
+  background: #cfe0ff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.3rem;
+  font-weight: 600;
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+.hero .lede {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  border-bottom: 2px solid #cfe0ff;
+  padding-bottom: 0.3rem;
+}
+
+dl dt {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+dl dd {
+  margin: 0.2rem 0 0;
+  color: #333;
+}
+
+footer {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  font-size: 0.85rem;
+  color: #555;
 }
